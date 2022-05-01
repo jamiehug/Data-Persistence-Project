@@ -43,6 +43,11 @@ public class MenuUI : MonoBehaviour
         }
     }
 
+    public void ViewHighScores()
+    {
+        SceneManager.LoadScene(2);
+    }
+
     /// <summary>
     /// Quits the game, if playing within editor that call the editor application object
     /// to exit play mode

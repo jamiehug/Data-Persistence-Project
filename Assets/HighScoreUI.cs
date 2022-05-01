@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HighScoreUI : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class HighScoreUI : MonoBehaviour
             int index = 1;
             foreach (var highScore in GameManager.Instance.GameData.HighScores)
             {
-                sb.AppendLine($"{index++}. {highScore.Name}   -   {highScore.Name}");
+                sb.AppendLine($"{index++}. {highScore.Name}   -   {highScore.Score}");
             }
 
             HighScoresText.text = sb.ToString();
@@ -29,5 +30,12 @@ public class HighScoreUI : MonoBehaviour
             HighScoresText.text = "No high scores yet! Play to add your name to the high scores.";
             HighScoresText.fontSize = 45;
         }
-    }   
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+            SceneManager.LoadScene(0);
+
+    }
 }
